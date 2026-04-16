@@ -7,6 +7,7 @@ import Timeline from "../components/timeline/Timeline";
 import ErrorPage from "../components/errorPage/ErrorPage";
 import AllFriends from "../components/home/AllFriends";
 import FriendDetails from "../components/page/FriendDetails";
+import { Suspense } from "react";
 
  export const router = createBrowserRouter([
   {
@@ -38,7 +39,10 @@ import FriendDetails from "../components/page/FriendDetails";
       {
         path:"/friendDetails/:Id",
         Component:FriendDetails,
-        loader:() => fetch("/friendsData.json"),
+        
+        loader:() => fetch("/friendsData.json").then(res => res.json())
+       
+        
       }
     ],
     errorElement:<ErrorPage />

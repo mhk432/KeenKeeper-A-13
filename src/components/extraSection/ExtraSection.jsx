@@ -9,13 +9,15 @@ const ExtraSection = ({ allFriendPromis }) => {
            <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 my-10 w-full">
   
   {/* Card 1 - Total Friends */}
-  <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border border-gray-100">
+  <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl 
+  transition-all duration-300 p-6 border border-gray-100">
     <div className="flex items-center justify-between">
       <div>
         <h3 className="text-4xl font-bold text-gray-800 mt-2">{friends.length}</h3>
         <p className="text-gray-500 text-sm font-medium">Total Friends</p>
       </div>
-      <div className="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-3xl">
+      <div className="w-14 h-14 bg-blue-100 text-blue-600 
+      rounded-2xl flex items-center justify-center text-3xl">
         👥
       </div>
     </div>
