@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Rahim Khan",
+    "picture": "https://i.pinimg.com/736x/25/75/82/257582ca13db7fcb4013b31a980c4884.jpg",
+    "email": "rahim.khan@gmail.com",
+    "days_since_contact": 18,
+    "status": "overdue",
+    "tags": ["university", "best friend"],
+    "bio": "Met during university days. We used to play cricket together every weekend.",
+    "goal": 14,
+    "next_due_date": "2026-04-10"
+  },
+  {
+    "id": 2,
+    "name": "Priya Sharma",
+    "picture": "https://i.pinimg.com/1200x/57/48/34/57483457f89a0d9fff3acbffdc26c5e3.jpg",
+    "email": "priya.sharma92@yahoo.com",
+    "days_since_contact": 5,
+    "status": "on-track",
+    "tags": ["school", "childhood"],
+    "bio": "My oldest friend from school. We share so many memories from childhood.",
+    "goal": 10,
+    "next_due_date": "2026-04-20"
+  },
+  {
+    "id": 3,
+    "name": "Sabbir Ahmed",
+    "picture": "https://i.pinimg.com/1200x/35/15/5b/35155b694831642fcfaea6a333cfa7c6.jpg",
+    "email": "sabbir.cse@outlook.com",
+    "days_since_contact": 9,
+    "status": "almost due",
+    "tags": ["work", "colleague"],
+    "bio": "Colleague turned close friend. We worked on many projects together.",
+    "goal": 12,
+    "next_due_date": "2026-04-18"
+  },
+  {
+    "id": 4,
+    "name": "Nadia Islam",
+    "picture":"https://i.pinimg.com/736x/e5/08/c1/e508c139ab1dc49452b8855885d4d66b.jpg",
+    "email": "nadia.islam@gmail.com",
+    "days_since_contact": 25,
+    "status": "overdue",
+    "tags": ["college", "close friend"],
+    "bio": "We were roommates in college. She is like a sister to me.",
+    "goal": 15,
+    "next_due_date": "2026-04-05"
+  },
+  {
+    "id": 5,
+    "name": "Arif Hossain",
+    "picture": "https://i.pinimg.com/736x/ac/49/dc/ac49dc4070e1a089438ef48b6ab879c7.jpg",
+    "email": "arif.hossain1998@gmail.com",
+    "days_since_contact": 3,
+    "status": "on-track",
+    "tags": ["gym", "fitness"],
+    "bio": "Gym buddy. We motivate each other to stay consistent with fitness.",
+    "goal": 7,
+    "next_due_date": "2026-04-22"
+  },
+  {
+    "id": 6,
+    "name": "Tania Akter",
+    "picture": "https://i.pinimg.com/736x/a2/b6/16/a2b6169df38adb14a8193558ff684c40.jpg",
+    "email": "tania.akter.21@gmail.com",
+    "days_since_contact": 12,
+    "status": "almost due",
+    "tags": ["neighbor", "family friend"],
+    "bio": "Grew up in the same neighborhood. Our families are very close.",
+    "goal": 14,
+    "next_due_date": "2026-04-15"
+  },
+  {
+    "id": 7,
+    "name": "Fahim Rahman",
+    "picture": "https://i.pinimg.com/736x/b4/f4/a5/b4f4a509bf93e2ef8d352f4f47fcf04e.jpg",
+    "email": "fahim.dev@gmail.com",
+    "days_since_contact": 31,
+    "status": "overdue",
+    "tags": ["coding", "tech friend"],
+    "bio": "Fellow developer. We often discuss new technologies and side projects.",
+    "goal": 21,
+    "next_due_date": "2026-03-25"
+  },
+  {
+    "id": 8,
+    "name": "Mehedi Hasan",
+    "picture": "https://i.pinimg.com/736x/59/0c/3a/590c3ae4505f87721839fdaea50a9582.jpg",
+    "email": "mehedi.hasan.bd@gmail.com",
+    "days_since_contact": 7,
+    "status": "on-track",
+    "tags": ["cricket", "friend"],
+    "bio": "Cricket teammate. We have played many local tournaments together.",
+    "goal": 10,
+    "next_due_date": "2026-04-19"
+  },
+  {
+    "id": 9,
+    "name": "Sabrina Chowdhury",
+    "picture": "https://i.pinimg.com/736x/5e/90/84/5e9084916fbd5d630742899a3a5d11c3.jpg",
+    "email": "sabrina.chowdhury@gmail.com",
+    "days_since_contact": 4,
+    "status": "on-track",
+    "tags": ["work", "mentor"],
+    "bio": "Senior colleague who guided me a lot in my early career.",
+    "goal": 14,
+    "next_due_date": "2026-04-21"
+  },
+  {
+    "id": 10,
+    "name": "Imran Khan",
+    "picture": "https://i.pinimg.com/1200x/c2/cb/b1/c2cbb187dfc67b51165cda9148f1623d.jpg",
+    "email": "imran.khan.95@hotmail.com",
+    "days_since_contact": 16,
+    "status": "overdue",
+    "tags": ["travel", "adventure"],
+    "bio": "Travel buddy. We have explored Cox's Bazar and Sylhet together.",
+    "goal": 18,
+    "next_due_date": "2026-04-08"
+  }
+]
