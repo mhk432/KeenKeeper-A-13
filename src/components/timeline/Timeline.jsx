@@ -1,86 +1,105 @@
-import React, { useContext } from 'react';
-import {  FriendsContext } from '../../context/FriendContext';  // ← এটা FriendContext হবে (FriendsContext না)
-import { FaPhone, FaComment, FaVideo, FaPhoneAlt } from 'react-icons/fa'; // icons
+import React, { useContext, useState } from 'react';
+import { FriendsContext } from '../../context/FriendContext';
+import { FaPhone, FaComment, FaVideo, FaSortAmountDown } from 'react-icons/fa';
 
 const Timeline = () => {
 
-    const { 
-        storedCall, 
-        storText, 
-        friendVideoCall 
-    } = useContext(FriendsContext);
+    const { storedCall, storText, friendVideoCall } = useContext(FriendsContext);
+
+    // Filter State
+    const [activeFilter, setActiveFilter] = useState('all');
+
+    // Date format function
+    const formatDate = (isoString) => {
+        const date = new Date(isoString);
+        return date.toLocaleString('en-BD', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+        });
+    };
+
+    // Sorting - Newest First
+    const sortByNewest = (data) => {
+        return [...data].sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    };
+
+    const sortedCalls = sortByNewest(storedCall);
+    const sortedTexts = sortByNewest(storText);
+    const sortedVideoCalls = sortByNewest(friendVideoCall);
+
+    // Filter Logic
+    const filteredData = () => {
+        if (activeFilter === 'call') return sortedCalls;
+        if (activeFilter === 'text') return sortedTexts;
+        if (activeFilter === 'video') return sortedVideoCalls;
+        return [...sortedCalls, ...sortedTexts, ...sortedVideoCalls]; 
+    };
+
+    const displayItems = filteredData();
 
     return (
-        <div className="timeline-container p-6">
-            <h1 className="text-3xl font-bold mb-8 text-center">Activity Timeline</h1>
+        <div className="p-6 max-w-6xl mx-auto">
+            <h1 className="text-4xl font-bold text-center mb-8 flex items-center justify-center gap-3">
+                <FaSortAmountDown /> Activity Timeline
+            </h1>
 
-            {/* ==================== Call Section ==================== */}
-            <div className="mb-10">
-                <div className="flex items-center gap-3 mb-4">
-                    <FaPhoneAlt className="text-red-500 text-2xl" />
-                    <h2 className="text-2xl font-semibold">Calls ({storedCall.length})</h2>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {storedCall.length > 0 ? (
-                        storedCall.map((friend, index) => (
-                            <div key={index} className="bg-white p-4 rounded-xl shadow-md flex items-center gap-4 border border-green-200">
-                                <FaPhone className="text-green-500 text-xl" />
-                                <div>
-                                    <p className="font-semibold">{friend.name}</p>
-                                    <p className="text-sm text-gray-500">Voice Call</p>
-                                </div>
-                            </div>
-                        ))
-                    ) : (
-                        <p className="text-gray-500 italic">No calls yet</p>
-                    )}
+            {/* ==================== Dropdown Filter ==================== */}
+            <div className="flex justify-center mb-10">
+                <div className="relative w-full max-w-xs">
+                    <select
+                        value={activeFilter}
+                        onChange={(e) => setActiveFilter(e.target.value)}
+                        className="w-full px-5 py-4 bg-white border border-gray-300 rounded-2xl text-lg font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                    >
+                        <option value="all">All Activities ({sortedCalls.length + sortedTexts.length + sortedVideoCalls.length})</option>
+                        <option value="call">📞 Calls ({sortedCalls.length})</option>
+                        <option value="text">💬 Messages ({sortedTexts.length})</option>
+                        <option value="video">🎥 Video Calls ({sortedVideoCalls.length})</option>
+                    </select>
                 </div>
             </div>
 
-            {/* ==================== Text Section ==================== */}
-            <div className="mb-10">
-                <div className="flex items-center gap-3 mb-4">
-                    <FaComment className="text-blue-500 text-2xl" />
-                    <h2 className="text-2xl font-semibold">Messages ({storText.length})</h2>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {storText.length > 0 ? (
-                        storText.map((friend, index) => (
-                            <div key={index} className="bg-white p-4 rounded-xl shadow-md flex items-center gap-4 border border-blue-200">
-                                <FaComment className="text-blue-500 text-xl" />
-                                <div>
-                                    <p className="font-semibold">{friend.name}</p>
-                                    <p className="text-sm text-gray-500">Text Message</p>
-                                </div>
-                            </div>
-                        ))
-                    ) : (
-                        <p className="text-gray-500 italic">No messages yet</p>
-                    )}
-                </div>
-            </div>
+            {/* ==================== Display Items ==================== */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {displayItems.length > 0 ? (
+                    displayItems.map((item, i) => {
+                        const isCall = sortedCalls.some(call => call.timestamp === item.timestamp && call.id === item.id);
+                        const isText = sortedTexts.some(text => text.timestamp === item.timestamp && text.id === item.id);
+                        const isVideo = sortedVideoCalls.some(video => video.timestamp === item.timestamp && video.id === item.id);
 
-            {/* ==================== Video Call Section ==================== */}
-            <div className="mb-10">
-                <div className="flex items-center gap-3 mb-4">
-                    <FaVideo className="text-purple-500 text-2xl" />
-                    <h2 className="text-2xl font-semibold">Video Calls ({friendVideoCall.length})</h2>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {friendVideoCall.length > 0 ? (
-                        friendVideoCall.map((friend, index) => (
-                            <div key={index} className="bg-white p-4 rounded-xl shadow-md flex items-center gap-4 border border-purple-200">
-                                <FaVideo className="text-purple-500 text-xl" />
-                                <div>
-                                    <p className="font-semibold">{friend.name}</p>
-                                    <p className="text-sm text-gray-500">Video Call</p>
-                                </div>
+                        return (
+                            <div
+                                key={i}
+                                className="bg-white p-6 rounded-2xl shadow-lg border hover:shadow-2xl transition-all duration-300"
+                            >
+                                {isCall && <FaPhone className="text-green-500 text-3xl mb-4" />}
+                                {isText && <FaComment className="text-blue-500 text-3xl mb-4" />}
+                                {isVideo && <FaVideo className="text-purple-500 text-3xl mb-4" />}
+
+                                <h3 className="font-bold text-2xl">{item.name}</h3>
+                                <p className="text-gray-600 mt-2 text-base">
+                                    {formatDate(item.timestamp)}
+                                </p>
+
+                                <p className={`mt-4 inline-block px-4 py-1 rounded-full text-sm font-medium
+                                    ${isCall ? 'bg-green-100 text-green-700' : 
+                                      isText ? 'bg-blue-100 text-blue-700' : 
+                                      'bg-purple-100 text-purple-700'}`}>
+                                    {isCall && 'Voice Call'}
+                                    {isText && 'Text Message'}
+                                    {isVideo && 'Video Call'}
+                                </p>
                             </div>
-                        ))
-                    ) : (
-                        <p className="text-gray-500 italic">No video calls yet</p>
-                    )}
-                </div>
+                        );
+                    })
+                ) : (
+                    <p className="text-gray-500 italic col-span-full text-center py-20 text-xl">
+                        No activities found
+                    </p>
+                )}
             </div>
         </div>
     );

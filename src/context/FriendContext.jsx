@@ -11,18 +11,31 @@ const FriendProvider = ({ children }) => {
     const [friendVideoCall, setFriendVideoCall] = useState([]);
 
     const handleCalling = (currentId) => {
-        setStoredCall(prev => [...prev, currentId]);
+        const textData = {
+            ...currentId,
+            timestamp: new Date().toISOString(),
+        };
+        setStoredCall(prev => [...prev, textData]);
         toast.success(`${currentId.name} is calling you!`);
-        console.log(currentId, "currentId");
+       
     };
 
     const handleText = (currentId) => {
-        setorText(prev => [...prev, currentId]);
+
+        const textData = {
+            ...currentId,
+            timestamp: new Date().toISOString(),
+        };
+        setorText(prev => [...prev, textData]);
         toast.success(`${currentId.name} is texting you!`);
     };
 
     const handleVideoCall = (currentId) => {
-        setFriendVideoCall(prev => [...prev, currentId]);
+        const videoCallData = {
+            ...currentId,
+            timestamp: new Date().toISOString(),
+        };
+        setFriendVideoCall(prev => [...prev, videoCallData]);
         toast.success(`${currentId.name} is video calling you!`);
     };
 
