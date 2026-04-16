@@ -2,12 +2,16 @@ import { useLoaderData, useParams } from 'react-router';
 import vector from '../../assets/Vector (3).png'
 import vector4 from '../../assets/Vector (4).png'
 import vector5 from '../../assets/Vector (5).png'
-import { useState } from 'react';
+import { useContext } from 'react';
+
+import {  FriendsContext } from '../../context/FriendContext';
 
 const FriendDetails = () => {
     const friendId = useParams();
     const friend = useLoaderData();
-
+    
+      const {handleCalling, handleText, handleVideoCall} =useContext(FriendsContext)
+   
    
 
     const expectedFriend = friend.find(friend => friend.id == friendId.Id);
@@ -15,19 +19,7 @@ const FriendDetails = () => {
 
     const { name, picture, email, days_since_contact, status, tags, bio, goal, next_due_date } = expectedFriend;
 
-              const [storedCall, setStoredCall] = useState([]);
-
-    const handleCalling = (currentId) => {
-
-        console.log('Calling friend with ID:',storedCall, currentId);
-        const isExistCall = storedCall.find((call) => call.id === currentId.id);
-        if (isExistCall) {
-          alert('You have already called this friend!');    
-    }else{
-      setStoredCall([...storedCall,currentId])
-    }
-
-  }
+             
     return (
         <div className='bg-gray-100 min-h-screen p-6 md:p-10 my-5 rounded-2xl'>
             <h1 className='font-bold text-4xl'>Friend Details</h1>
@@ -136,7 +128,7 @@ const FriendDetails = () => {
               </p>
             </div>
             <button
-              onClick={() => editGoal()}
+              
               className="bg-white border border-gray-300 hover:bg-gray-100 
               px-6 py-3 rounded-xl text-xl font-medium flex items-center gap-2 whitespace-nowrap"
             >
@@ -158,7 +150,7 @@ const FriendDetails = () => {
               📞 <span className="font-medium text-green-700">Call</span>
             </button>
 
-            <button onClick={() => ('text')} className=" 
+            <button onClick={() =>handleText(expectedFriend)} className=" 
             text-2xl flex flex-col items-center gap-3 
             bg-white hover:bg-blue-50 border
              border-blue-200 hover:border-blue-400 
@@ -166,7 +158,7 @@ const FriendDetails = () => {
               💬 <span className="font-medium text-blue-700">Text</span>
             </button>
 
-            <button onClick={() => ('video')} className="text-2xl flex flex-col items-center gap-3 bg-white hover:bg-purple-50 border border-purple-200 hover:border-purple-400 rounded-2xl py-8 transition-all hover:scale-105">
+            <button onClick={() => handleVideoCall(expectedFriend)} className="text-2xl flex flex-col items-center gap-3 bg-white hover:bg-purple-50 border border-purple-200 hover:border-purple-400 rounded-2xl py-8 transition-all hover:scale-105">
               📹 <span className="font-medium text-purple-700">Video</span>
             </button>
           </div>
