@@ -9,6 +9,8 @@ const FriendProvider = ({ children }) => {
     const [storedCall, setStoredCall] = useState([]);
     const [storText, setorText] = useState([]);
     const [friendVideoCall, setFriendVideoCall] = useState([]);
+    
+    // Functions to handle activities
 
     const handleCalling = (currentId) => {
         const textData = {
