@@ -1,10 +1,11 @@
-import { useLoaderData, useParams } from 'react-router';
+import { NavLink, useLoaderData, useParams } from 'react-router';
 import vector from '../../assets/Vector (3).png'
 import vector4 from '../../assets/Vector (4).png'
 import vector5 from '../../assets/Vector (5).png'
 import { useContext } from 'react';
 
 import {  FriendsContext } from '../../context/FriendContext';
+import { FaArrowLeft } from 'react-icons/fa';
 
 const FriendDetails = () => {
     const friendId = useParams();
@@ -23,6 +24,9 @@ const FriendDetails = () => {
     return (
         <div className='bg-gray-100 min-h-screen p-6 md:p-10 my-5 rounded-2xl'>
             <h1 className='font-bold text-4xl'>Friend Details</h1>
+            <NavLink to="/" className="btn btn-ghost text-green-500 text-5xl mt-10">
+                < FaArrowLeft /> 
+            </NavLink>
 
            <div className="  my-20 p-6 md:p-10 rounded-2xl">
 
@@ -94,11 +98,11 @@ const FriendDetails = () => {
     </div>
 
     {/* ==================== RIGHT SIDE - Stats & Actions ==================== */}
-    <div className="lg:col-span-7  xl:col-span-8 flex flex-col">
+    <div className="sm:col-span-1 lg:col-span-7  xl:col-span-8 flex flex-col">
       <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 flex-1 flex flex-col space-y-6">
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           <div className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white rounded-2xl p-5 text-center">
             <p className="text-sm opacity-80">Days Since Contact</p>
             <p className="text-4xl font-bold mt-2">{days_since_contact}</p>
@@ -130,7 +134,8 @@ const FriendDetails = () => {
             <button
               
               className="bg-white border border-gray-300 hover:bg-gray-100 
-              px-6 py-3 rounded-xl text-xl font-medium flex items-center gap-2 whitespace-nowrap"
+              px-6 py-3 rounded-xl text-xl font-medium flex items-center 
+              gap-2 whitespace-wrap"
             >
               ✏️ Edit Goal
             </button>
@@ -142,7 +147,7 @@ const FriendDetails = () => {
          flex-1 flex flex-col">
           <p className="text-xl mb-5">Quick Check-In</p>
           
-          <div className="grid grid-cols-3 gap-4 mt-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-auto">
             <button onClick={() => handleCalling(expectedFriend)} className="flex flex-col
              items-center gap-3 bg-white hover:bg-green-50 border
               border-green-200 hover:border-green-400 rounded-2xl

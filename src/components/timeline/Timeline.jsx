@@ -42,12 +42,13 @@ const Timeline = () => {
 
     return (
         <div className="p-6 max-w-6xl mx-auto">
-            <h1 className="text-4xl font-bold text-center mb-8 flex items-center justify-center gap-3">
-                <FaSortAmountDown /> Activity Timeline
+            <h1 className="text-4xl text-purple-500 font-bold  
+            mb-8 flex items-center gap-3">
+                < FaSortAmountDown /> Activity Timeline
             </h1>
 
             {/* ==================== Dropdown Filter ==================== */}
-            <div className="flex justify-center mb-10">
+            <div className="flex  mb-10">
                 <div className="relative w-full max-w-xs">
                     <select
                         value={activeFilter}
@@ -55,29 +56,30 @@ const Timeline = () => {
                         className="w-full px-5 py-4 bg-white border border-gray-300 rounded-2xl text-lg font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
                     >
                         <option value="all">All Activities ({sortedCalls.length + sortedTexts.length + sortedVideoCalls.length})</option>
-                        <option value="call">📞 Calls ({sortedCalls.length})</option>
-                        <option value="text">💬 Messages ({sortedTexts.length})</option>
-                        <option value="video">🎥 Video Calls ({sortedVideoCalls.length})</option>
+                        <option value="call">📞 Calls </option>
+                        <option value="text">💬 Messages </option>
+                        <option value="video">🎥 Video Calls</option>
                     </select>
                 </div>
             </div>
 
             {/* ==================== Display Items ==================== */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="space-y-6 shadow-2xs">
                 {displayItems.length > 0 ? (
                     displayItems.map((item, i) => {
-                        const isCall = sortedCalls.some(call => call.timestamp === item.timestamp && call.id === item.id);
+        const isCall = sortedCalls.some(call => call.timestamp === item.timestamp && call.id === item.id);
                         const isText = sortedTexts.some(text => text.timestamp === item.timestamp && text.id === item.id);
                         const isVideo = sortedVideoCalls.some(video => video.timestamp === item.timestamp && video.id === item.id);
 
                         return (
                             <div
                                 key={i}
-                                className="bg-white p-6 rounded-2xl shadow-lg border hover:shadow-2xl transition-all duration-300"
+                                className="bg-white p-6  sm:text-center md:flex lg:flex items-center  gap-4
+                                 rounded-2xl shadow-lg border hover:shadow-2xl transition-all duration-300"
                             >
-                                {isCall && <FaPhone className=" text-green-500 text-3xl mb-4" />}
-                                {isText && <FaComment className="text-blue-500 text-3xl mb-4" />}
-                                {isVideo && <FaVideo className="text-purple-500 text-3xl mb-4" />}
+                    {isCall && <FaPhone className=" text-green-500 text-3xl mb-2" />}
+                 {isText && <FaComment className="text-blue-500 text-3xl mb-2" />}
+                {isVideo && <FaVideo className="text-purple-500 text-3xl " />}
 
                                 <h3 className="font-bold text-2xl">{item.name}</h3>
                                 <p className="text-gray-600 mt-2 text-base">

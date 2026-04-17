@@ -68,7 +68,7 @@ const Stats = () => {
                         {totalActivities > 0 ? (
                             <Pie data={pieData} options={options} />
                         ) : (
-                            <p className="text-gray-500 text-xl">No activities yet</p>
+                    <p className="text-gray-500 text-xl">No activities yet</p>
                         )}
                     </div>
                 </div>
