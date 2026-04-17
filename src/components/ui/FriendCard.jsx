@@ -6,8 +6,7 @@ const FriendCard = ({friends}) => {
         <Link to={`/friendDetails/${friends.id}`} className="card bg-base-100
         hover:shadow-xl 
   transition-all duration-400  lg:w-full shadow-2xl mb-5
-                         border  border-b-4 
-                        border-red-500  hover:bg-purple-50 
+                           hover:bg-purple-50 
                         rounded-2xl" key={friends.id}>
                             <figure className=" px-10 pt-10">
                                 <img
