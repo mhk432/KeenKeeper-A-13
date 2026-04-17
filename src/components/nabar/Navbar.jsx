@@ -9,7 +9,7 @@ const Navbar = () => {
         <div className="navbar bg-base-100 shadow-sm">
   <div className="flex-1">
     <NavLink to='/' className=" text-2xl font-bold">Keen<span 
-    className='font-semibold'>Keeper</span></NavLink>
+    className='font-bold text-2xl text-[#244D3F]'>Keeper</span></NavLink>
       
   </div>
   <div className="flex-none">
@@ -19,7 +19,7 @@ const Navbar = () => {
                 to="/"
                 className={({ isActive }) =>
                     `font-semibold text-[16px] mr-2 ${isActive
-                        ? "text-white bg-green-500"
+                        ? "text-white bg-[#244D3F]"
                         : ""
                     }`
                 }
@@ -32,7 +32,7 @@ const Navbar = () => {
                 to="/timeline"
                 className={({ isActive }) =>
                     `font-semibold text-[16px] mr-2 ${isActive
-                        ? "text-white bg-green-500"
+                        ? "text-white bg-[#244D3F]"
                         : ""
                     }`
                 }
@@ -45,7 +45,7 @@ const Navbar = () => {
                 to="/stats"
                 className={({ isActive }) =>
                     `font-semibold text-[16px] mr-2 ${isActive
-                        ? "text-white bg-green-500"
+                        ? "text-white bg-[#244D3F]"
                         : ""
                     }`
                 }

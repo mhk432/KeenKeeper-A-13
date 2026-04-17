@@ -8,7 +8,7 @@ const Bannar = () => {
             <p>Your personal shelf of meaningful connections. Browse, tend,
                  and nurture the <br />
                 relationships that matter most.</p>
-                <button className='btn text-white bg-green-500 hover:bg-green-600'><LuPlus  />Add a Friend</button>
+                <button className='btn text-white bg-[#244D3F] hover:bg-green-600'><LuPlus  />Add a Friend</button>
         </div>
     );
 };

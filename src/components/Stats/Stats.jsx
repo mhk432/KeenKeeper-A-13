@@ -22,9 +22,9 @@ const Stats = () => {
                 label: 'Activities',
                 data: [totalCalls, totalTexts, totalVideoCalls],
                 backgroundColor: [
-                    '#22c55e',   // Green for Calls
-                    '#3b82f6',   // Blue for Texts
-                    '#a855f7',   // Purple for Video
+                    '#22c55e',   
+                    '#3b82f6',   
+                    '#a855f7',   
                 ],
                 borderColor: '#ffffff',
                 borderWidth: 3,
@@ -55,15 +55,16 @@ const Stats = () => {
     };
 
     return (
-        <div className="p-8 max-w-5xl mx-auto">
+        <div className="p-8  ">
             <h1 className="text-4xl font-bold text-center mb-10">📊 Activity Statistics</h1>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div className=" gap-10">
 
                 {/* Pie Chart */}
-                <div className="bg-white p-8 rounded-3xl shadow-xl">
-                    <h2 className="text-2xl font-semibold text-center mb-6">Activity Distribution</h2>
-                    <div className="h-[400px] flex items-center justify-center">
+                <div className="bg-white p-8 rounded-3xl shadow-xl  
+                 flex justify-center ">
+       
+            <div className="h-[400px] flex items-center justify-center">
                         {totalActivities > 0 ? (
                             <Pie data={pieData} options={options} />
                         ) : (
@@ -72,37 +73,7 @@ const Stats = () => {
                     </div>
                 </div>
 
-                {/* Summary Cards */}
-                <div className="space-y-6">
-                    <div className="bg-white p-6 rounded-3xl shadow-xl flex items-center gap-6">
-                        <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center text-3xl">📞</div>
-                        <div>
-                            <p className="text-4xl font-bold text-green-600">{totalCalls}</p>
-                            <p className="text-gray-600 text-lg">Voice Calls</p>
-                        </div>
-                    </div>
-
-                    <div className="bg-white p-6 rounded-3xl shadow-xl flex items-center gap-6">
-                        <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-3xl">💬</div>
-                        <div>
-                            <p className="text-4xl font-bold text-blue-600">{totalTexts}</p>
-                            <p className="text-gray-600 text-lg">Text Messages</p>
-                        </div>
-                    </div>
-
-                    <div className="bg-white p-6 rounded-3xl shadow-xl flex items-center gap-6">
-                        <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center text-3xl">🎥</div>
-                        <div>
-                            <p className="text-4xl font-bold text-purple-600">{totalVideoCalls}</p>
-                            <p className="text-gray-600 text-lg">Video Calls</p>
-                        </div>
-                    </div>
-
-                    <div className="bg-gradient-to-r from-gray-800 to-black text-white p-8 rounded-3xl shadow-xl text-center">
-                        <p className="text-5xl font-bold">{totalActivities}</p>
-                        <p className="text-lg mt-2 opacity-80">Total Activities</p>
-                    </div>
-                </div>
+                
             </div>
         </div>
     );

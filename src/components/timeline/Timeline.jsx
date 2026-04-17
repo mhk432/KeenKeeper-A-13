@@ -75,7 +75,7 @@ const Timeline = () => {
                                 key={i}
                                 className="bg-white p-6 rounded-2xl shadow-lg border hover:shadow-2xl transition-all duration-300"
                             >
-                                {isCall && <FaPhone className="text-green-500 text-3xl mb-4" />}
+                                {isCall && <FaPhone className=" text-green-500 text-3xl mb-4" />}
                                 {isText && <FaComment className="text-blue-500 text-3xl mb-4" />}
                                 {isVideo && <FaVideo className="text-purple-500 text-3xl mb-4" />}
 
