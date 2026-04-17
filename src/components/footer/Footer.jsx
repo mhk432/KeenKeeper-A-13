@@ -6,10 +6,10 @@ import x from '../../assets/Vector (6).png'
 const Footer = () => {
     return (
         <footer className="mx-auto text-center bg-[#244D3F]
-         text-gray-200 rounded-2xl mt-20">
+         text-gray-200  mt-20">
           <div>
 
-  <aside className='p-10 space-y-5'>
+  <aside className='py-10 px-20 space-y-5'>
     <h1 className='text-6xl  font-bold'>KeenKeeper</h1>
     <p>Your personal shelf of meaningful connections. Browse, tend, and nurture
        the relationships that matter most.</p>

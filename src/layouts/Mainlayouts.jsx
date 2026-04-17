@@ -7,15 +7,15 @@ import Footer from '../components/footer/Footer';
 const Mainlayouts = () => {
     return (
         <div className=' mt-20'>
-            <div className='px-20'>
-
-      <Navbar></Navbar>
-            </div>
-
        <Suspense fallback={<div className='text-center 
        my-20 text-5xl font-bold'><span className="loading loading-spinner
        loading-xl text-blue-600 text-6xl"></span></div>}>
-      <div className='lg:px-40'>
+
+            <div className='sm:px-4 lg:px-20 '>
+      <Navbar></Navbar>
+            </div>
+      <div className='px-8 lg:px-40'>
+
       <Outlet></Outlet>
       </div>
        </Suspense>

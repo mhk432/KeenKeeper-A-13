@@ -84,7 +84,7 @@ const Timeline = () => {
                                     {formatDate(item.timestamp)}
                                 </p>
 
-                                <p className={`mt-4 inline-block px-4 py-1 rounded-full text-sm font-medium
+                                <p className={` mt-4 inline-block px-4 py-1 rounded-full text-sm font-medium
                                     ${isCall ? 'bg-green-100 text-green-700' : 
                                       isText ? 'bg-blue-100 text-blue-700' : 
                                       'bg-purple-100 text-purple-700'}`}>
